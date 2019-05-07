@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/my-lcn-package.iml" filepath="$PROJECT_DIR$/my-lcn-package.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-lcn-service1-iface/my-lcn-service1-iface.iml" filepath="$PROJECT_DIR$/my-lcn-service1-iface/my-lcn-service1-iface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-lcn-service2-iface/my-lcn-service2-iface.iml" filepath="$PROJECT_DIR$/my-lcn-service2-iface/my-lcn-service2-iface.iml" />
+    </modules>
+  </component>
+</project>

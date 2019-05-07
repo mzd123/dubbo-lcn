@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <!-- 应用名，用于计算依赖关系 -->
+    <dubbo:application name="service2"/>
+    <!-- 定义 zookeeper 注册中心地址及协议 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
+    <!-- 定义 Dubbo 协议名称及使用的端口，dubbo 协议缺省端口为 20880，如果配置为 -1 或者没有配置 port，则会分配一个没有被占用的端口 -->
+    <dubbo:protocol name="dubbo" port="-1"/>
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:reference interface="com.mzd.mylcnservice1iface.service.TestService1" id="testService1" check="false"
+                     timeout="10000"/>
+    <dubbo:service interface="com.mzd.mylcnservice2iface.service.TestService2" ref="testService2" executes="100"
+                   timeout="10000" protocol="dubbo"/>
+    <!--分布式事物必须声明, check false 关闭启动服务依赖-->
+    <dubbo:consumer filter="transactionFilter" check="false"/>
+</beans>
